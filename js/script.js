@@ -10,6 +10,10 @@ $(window).on('load', function () { // makes sure that whole site is loaded
 /* =========================================
                 Team
 ============================================ */
+// $(function(){
+// }) is short for 
+// $(document).ready(function(){
+// })
 $(function () {
     $("#team-members").owlCarousel({
         items: 2,
@@ -19,6 +23,7 @@ $(function () {
         autoplayHoverPause: true,
         nav: true,
         dots: false,
+        // 这两个元素是向左向右箭头，是自定义的nav内容
         navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
         responsive: {
             // breakpoint from 0 up
@@ -37,7 +42,8 @@ $(function () {
                 Progress Bars
 ============================================ */
 $(function () {
-
+    // progress-elements is for find the scroll postion for these progress-bars
+    // way point means when you reach this area the following function will work
     $("#progress-elements").waypoint(function () {
 
         $(".progress-bar").each(function () {
@@ -48,8 +54,10 @@ $(function () {
 
         });
 
+        //   prevent the waypoint plugin to perform its action again
         this.destroy();
     }, {
+        // when the progree-bar is in the bottom of the window the waypoint will act
         offset: 'bottom-in-view'
     });
 
@@ -58,9 +66,12 @@ $(function () {
 /* =========================================
                Responsive Tabs
 ============================================ */
+//  达成效果：点击链接，跳转到相应id，规定格式参考 https://github.com/jellekralt/Responsive-Tabs
+// 不需要一定是ID=services-tabs，可以自定义名称
 $(function () {
 
     $("#services-tabs").responsiveTabs({
+        // 切换效果
         animation: 'slide'
     });
 
